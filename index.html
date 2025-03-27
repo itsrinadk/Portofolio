@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rina's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            display: flex;
+            background: black;
+            color: #ddd;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(135deg, #ff6f61, #d4554a);
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            color: white;
+            box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+            transition: width 0.3s ease;
+        }
+        .sidebar h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        .nav-links li {
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            display: block;
+            padding: 12px;
+            border-radius: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .nav-links li:hover, .nav-links li.active a {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .content {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 20px;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background: #222;
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: scale(1.02);
+        }
+        .project-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .project-card {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #ff6f61;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .project-card a:hover {
+            background: #d4554a;
+        }
+        .contact-info a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-info a:hover {
+            color: #d4554a;
+        }
+        @media (max-width: 768px) {
+            .sidebar { width: 200px; }
+            .content { margin-left: 200px; }
+            section { height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Rina's Portfolio</h1>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="home">
+            <h2>Hi, I'm Rina!</h2>
+            <p>Front-End Developer & Graphic Designer</p>
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm in the process of becoming a front-end developer...</p>
+        </section>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <h3>Fast Food Website</h3>
+                    <p>A simple fast food website built using HTML and CSS.</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>This Portfolio</h3>
+                    <p>A simple developer portfolio built using HTML, CSS, and JavaScript.</p>
+                    <a href="#" target="_blank">Try It Out</a>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:rinadoka04@gmail.com">rinadoka04@gmail.com</a></p>
+                <p>📞 Phone: <a href="tel:+355692439420">+355 69 24 39 420</a></p>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
